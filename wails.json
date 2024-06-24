@@ -1,0 +1,13 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "ergonomic",
+  "outputfilename": "ergonomic",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "“SufurElite”",
+    "email": "13058966+SufurElite@users.noreply.github.com"
+  }
+}
