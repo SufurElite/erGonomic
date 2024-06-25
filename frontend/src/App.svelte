@@ -1,6 +1,18 @@
 <script lang="ts">
   import logo from './assets/images/logo-universal.png'
   import {Greet} from '../wailsjs/go/main/App.js'
+  import { InlineCalendar } from 'svelte-calendar';
+	import dayjs from 'dayjs';
+
+	const theme = {
+		calendar: {
+			width: '600px',
+			shadow: '0px 0px 5px rgba(0, 0, 0, 0.25)'
+		}
+	};
+
+	let store;
+
 
   let resultText: string = "Please enter your name below 👇"
   let name: string
@@ -10,13 +22,22 @@
   }
 </script>
 
+
 <main>
   <img alt="Wails logo" id="logo" src="{logo}">
-  <div class="result" id="result">{resultText}</div>
-  <div class="input-box" id="input">
-    <input autocomplete="off" bind:value={name} class="input" id="name" type="text"/>
-    <button class="btn" on:click={greet}>Greet</button>
-  </div>
+    <InlineCalendar bind:store {theme} />
+
+<div class="grid">
+	<button on:click={() => store.add(-1, 'year')}>-1y</button>
+	<button on:click={() => store.add(-1, 'month')}>-1m</button>
+	<button class="day" on:click={() => store.add(-1, 'day')}>-1d</button>
+	<p>
+		{dayjs($store?.selected).format('MM/DD/YYYY')}
+	</p>
+	<button class="day" on:click={() => store.add(1, 'day')}>+1d</button>
+	<button on:click={() => store.add(1, 'month')}>+1m</button>
+	<button on:click={() => store.add(1, 'year')}>+1y</button>
+</div>
 </main>
 
 <style>
