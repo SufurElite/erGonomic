@@ -2,11 +2,12 @@
   import logo from './assets/images/logo-universal.png'
   import {Greet} from '../wailsjs/go/main/App.js'
   import { InlineCalendar } from 'svelte-calendar';
+  import Settings  from './Settings.svelte';
 	import dayjs from 'dayjs';
 
 	const theme = {
 		calendar: {
-			width: '600px',
+      width:"80vw",
 			shadow: '0px 0px 5px rgba(0, 0, 0, 0.25)'
 		}
 	};
@@ -14,18 +15,18 @@
 	let store;
 
 
-  let resultText: string = "Please enter your name below 👇"
-  let name: string
-
-  function greet(): void {
-    Greet(name).then(result => resultText = result)
-  }
 </script>
 
 
 <main>
-  <img alt="Wails logo" id="logo" src="{logo}">
+  <div id="app">
+    <Settings />
+    <img alt="Wails logo" id="logo" src="{logo}">
+    <div>
+      <div >
     <InlineCalendar bind:store {theme} />
+        </div>
+      </div>
 
 <div class="grid">
 	<button on:click={() => store.add(-1, 'year')}>-1y</button>
@@ -38,12 +39,19 @@
 	<button on:click={() => store.add(1, 'month')}>+1m</button>
 	<button on:click={() => store.add(1, 'year')}>+1y</button>
 </div>
+          <div>
 </main>
 
 <style>
+  #app {
+    width:100%;
+    height:100%;
+    display:block;
+    margin:auto;
+    justify-items: center;
+  }
 
   #logo {
-    display: block;
     width: 50%;
     height: 50%;
     margin: auto;
