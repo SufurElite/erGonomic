@@ -6,7 +6,7 @@ import Icon from '@iconify/svelte';
 
 <div>
   <div id="top-row">
-    <div style="flex:1; position:fixed; text-align:center;">
+    <div style="position:relative;">
           <h1>erGonomic</h1>
     </div>
     <div id="icon">
@@ -20,7 +20,6 @@ import Icon from '@iconify/svelte';
 
   #top-row {
     background-color:#36454F;
-    position:fixed;
     height: 10%;
     width: 100%;
     margin: auto;
@@ -28,12 +27,13 @@ import Icon from '@iconify/svelte';
     flex-direction:row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10%;
 }
   #icon {
-    margin-left:95%;
+    position:absolute;
     margin-top:auto;
     margin-bottom:auto;
-    position: fixed;
+    margin-left:90%;
   }
 
 </style>
