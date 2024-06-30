@@ -1,30 +1,28 @@
 <script lang="ts">
-  import {Greet} from '../wailsjs/go/main/App.js'
   import { InlineCalendar } from 'svelte-calendar';
   import Settings  from './Settings.svelte';
+  import Day from './Day.svelte';
 	import dayjs from 'dayjs';
 
 function down() {size -= 5;}
-	let theme = {
-		calendar: {
-      width:'80vw',
+	let theme = { calendar: { width:'70vw',
 			shadow: '0px 0px 5px rgba(0, 0, 0, 0.25)'
 		}
 	};
 
 	let store;
-
-
-
 </script>
 
 
 <main>
   <div id="app">
     <Settings />
+      <div id = "main">
       <div id="cal">
-    <InlineCalendar bind:store {theme} />
-        </div>
+        <InlineCalendar bind:store {theme} />
+      </div>
+    <Day store={store}/>
+      </div>
 
 <div class="grid">
 	<button on:click={() => store.add(-1, 'year')}>-1y</button>
@@ -48,8 +46,17 @@ function down() {size -= 5;}
     margin:auto;
     justify-items: center;
   }
-  
-  #cal {
-    margin-top:10%;
+
+  #main {
+    display: flex;
+    margin-top:5%;
+    flex:row;
   }
+
+  #cal {
+  margin-left: 5%;
+
+
+  }
+
 </style>
