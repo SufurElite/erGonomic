@@ -2,9 +2,9 @@
   import { InlineCalendar } from 'svelte-calendar';
   import Settings  from './Settings.svelte';
   import Day from './Day.svelte';
-	import dayjs from 'dayjs';
+  import AddTask from './AddTask.svelte';
 
-function down() {size -= 5;}
+
 	let theme = { calendar: { width:'70vw',
 			shadow: '0px 0px 5px rgba(0, 0, 0, 0.25)'
 		}
@@ -23,19 +23,8 @@ function down() {size -= 5;}
       </div>
     <Day store={store}/>
       </div>
+    <AddTask/>
 
-<div class="grid">
-	<button on:click={() => store.add(-1, 'year')}>-1y</button>
-	<button on:click={() => store.add(-1, 'month')}>-1m</button>
-	<button class="day" on:click={() => store.add(-1, 'day')}>-1d</button>
-	<p>
-		{dayjs($store?.selected).format('MM/DD/YYYY')}
-	</p>
-	<button class="day" on:click={() => store.add(1, 'day')}>+1d</button>
-	<button on:click={() => store.add(1, 'month')}>+1m</button>
-	<button on:click={() => store.add(1, 'year')}>+1y</button>
-</div>
-          <div>
 </main>
 
 <style>
@@ -50,6 +39,7 @@ function down() {size -= 5;}
   #main {
     display: flex;
     margin-top:5%;
+    margin-bottom:2%;
     flex:row;
   }
 

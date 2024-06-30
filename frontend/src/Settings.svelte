@@ -19,7 +19,7 @@ let showSettings = false;
 {#if showSettings}
 <div id = "settings-screen">
     <div id="top-row"> 
-    <h3> Settings </h3>
+    <h2> Settings </h2>
       <div id="icon" on:click={()=>showSettings = false}> 
         <Icon icon="mdi:exit-to-app" style="height: 3em; width: auto" />
       </div>
