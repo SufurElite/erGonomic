@@ -48,5 +48,8 @@ function down() {size -= 5;}
     margin:auto;
     justify-items: center;
   }
-
+  
+  #cal {
+    margin-top:10%;
+  }
 </style>
